@@ -65,19 +65,18 @@ button:hover{
     min-height:100vh;
     padding:20px 0;
   }
-
-  .side-img{
    .side-img{
   width:100%;
   height:auto;   /* ⭐ important */
   object-fit:contain;
-}  /* same size */
-  }
+}  
+  
 
   .quiz-box{
     width:90%;
   }
 }
+
 
 
 

@@ -65,17 +65,20 @@ button:hover{
     min-height:100vh;
     padding:20px 0;
   }
-   .side-img{
-  width:100%;
-  height:auto;   /* ⭐ important */
-  object-fit:contain;
-}  
+  .side-img{
+  width:250px;       /* same width */
+  height:auto;       /* ⭐ full image show */
+  max-height:350px;  /* limit only (optional) */
+  object-fit:contain; /* no crop */
+  border-radius:20px;
+}
   
 
   .quiz-box{
     width:90%;
   }
 }
+
 
 
 

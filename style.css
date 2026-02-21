@@ -8,13 +8,13 @@
 /* BACKGROUND IMAGE */
 body{
   font-family: Arial;
-  height:100vh;
+  min-height:100vh;   /* ⭐ vh remove */
   background:url("bg.jpg") no-repeat center center/cover;
 }
 
 /* MAIN LAYOUT */
 .container{
-  height:100vh;
+  min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -56,22 +56,19 @@ button:hover{
   color:white;
 }
 
-/* ⭐ MOBILE VIEW (IMPORTANT PART) */
+/* ⭐ MOBILE VIEW FIX */
 @media (max-width:768px){
 
-  body{
-    height:auto;
-  }
-
   .container{
-    flex-direction:column;   /* stack */
-    gap:20px;
-    padding:20px;
+    flex-direction:column;
+    justify-content:space-between; /* ⭐ top bottom push */
+    min-height:100vh;
+    padding:20px 0;
   }
 
   .side-img{
     width:90%;
-    height:200px;   /* same size */
+    height:180px;   /* same size */
   }
 
   .quiz-box{

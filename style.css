@@ -8,8 +8,8 @@
 /* BODY — NO SCROLL */
 body{
   font-family: Arial;
-  height:100vh;                 /* full screen only */
-  overflow:hidden;              /* ⭐ scroll remove */
+  height:100vh;
+  overflow:hidden;
   background:url("bg.jpg") no-repeat center center/cover;
 }
 
@@ -22,13 +22,13 @@ body{
   gap:20px;
 }
 
-/* SIDE IMAGES — SMALL + FULL IMAGE SHOW (NO CROP) */
+/* SIDE IMAGES */
 .side-img{
-  max-width:180px;     /* image small */
-  max-height:40vh;     /* screen height 40% only */
+  max-width:180px;
+  max-height:40vh;
   width:auto;
   height:auto;
-  object-fit:contain;  /* ⭐ full image show */
+  object-fit:contain;
   border-radius:20px;
 }
 
@@ -59,21 +59,7 @@ button:hover{
   color:white;
 }
 
-/* MOBILE VIEW */
-@media (max-width:768px){
-
-  .container{
-    flex-direction:column;
-    justify-content:space-between;
-    height:100vh;
-    padding:10px 0;
-  }
-
-  .side-img{
-    max-width:140px;   /* smaller top bottom */
-    max-height:25vh;
-  }
-  /* ❤️ FLOATING HEARTS */
+/* ❤️ FLOATING HEARTS (⭐ OUTSIDE MEDIA QUERY) */
 .hearts{
   position:fixed;
   top:0;
@@ -98,7 +84,7 @@ button:hover{
   }
 }
 
-/* ✅ ANSWER COLORS */
+/* ANSWER COLORS */
 .correct{
   background:#4CAF50 !important;
   color:white;
@@ -109,8 +95,22 @@ button:hover{
   color:white;
 }
 
+/* MOBILE VIEW */
+@media (max-width:768px){
+
+  .container{
+    flex-direction:column;
+    justify-content:space-between;
+    height:100vh;
+    padding:10px 0;
+  }
+
+  .side-img{
+    max-width:140px;
+    max-height:25vh;
+  }
+
   .quiz-box{
     width:90%;
   }
 }
-

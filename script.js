@@ -1,4 +1,4 @@
-// Floating hearts animation
+// ❤️ Floating hearts animation
 setInterval(()=>{
   let heart=document.createElement("div");
   heart.className="heart";
@@ -9,12 +9,11 @@ setInterval(()=>{
 
   document.querySelector(".hearts").appendChild(heart);
 
-  setTimeout(()=>{
-    heart.remove();
-  },6000);
-
+  setTimeout(()=>heart.remove(),6000);
 },400);
 
+
+// QUIZ DATA
 const quiz = [
 {
 question: "Nammaloda Love Ennakki start akichu❤️?",
@@ -46,6 +45,8 @@ correct: "Yes"
 let current=0;
 let score=0;
 
+
+// LOAD QUESTION
 function loadQuestion(){
 document.getElementById("question").innerText=quiz[current].question;
 
@@ -56,26 +57,52 @@ quiz[current].answers.forEach(ans=>{
 let btn=document.createElement("button");
 btn.innerText=ans;
 
-btn.onclick=()=>{
-if(ans===quiz[current].correct){
-score++;
-document.getElementById("score").innerText=score;
-}
-
-current++;
-
-if(current<quiz.length) loadQuestion();
-else showResult();
-};
+btn.onclick=()=>handleAnswer(btn,ans);
 
 answerBox.appendChild(btn);
 });
 }
 
+
+// HANDLE ANSWER
+function handleAnswer(btn,ans){
+
+let buttons=document.querySelectorAll("#answers button");
+buttons.forEach(b=>b.disabled=true);
+
+if(ans===quiz[current].correct){
+btn.classList.add("correct");
+score++;
+document.getElementById("score").innerText=score;
+
+setTimeout(nextQuestion,800);
+}
+else{
+btn.classList.add("wrong");
+
+setTimeout(()=>{
+alert("❌ Wrong answer 😜 Try next question");
+nextQuestion();
+},300);
+}
+}
+
+
+// NEXT QUESTION
+function nextQuestion(){
+current++;
+
+if(current<quiz.length) loadQuestion();
+else showResult();
+}
+
+
+// RESULT
 function showResult(){
 document.querySelector(".quiz-box").innerHTML=
 `<h2>❤️ I Love You ❤️</h2>
-<p>நீ தான் என் வாழ்க்கை 💕</p>`;
+<p>நீ தான் என் வாழ்க்கை 💕</p>
+<h3>Final Score: ${score}</h3>`;
 }
 
 loadQuestion();

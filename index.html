@@ -2,29 +2,44 @@
 <html>
 <head>
 <title>Love Quiz ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
 <div class="hearts"></div>
+
+<!-- MESSAGE BOX -->
+<div id="msgBox" class="msg-box">
+  <div class="msg-content">
+    <p id="msgText"></p>
+    <button onclick="closeMsg()">OK</button>
+  </div>
+</div>
+
 <div class="container">
 
   <img src="left.jpg" class="side-img left">
   
   <div class="quiz-box">
+    <p id="multiCount" style="display:none; margin-top:10px; font-weight:bold;"></p>
     <h2 id="question">Question here</h2>
     <div id="answers"></div>
     <p>Score: <span id="score">0</span></p>
+    <div class="progress">
+  <div id="loveBar"></div>
+</div>
   </div>
 
   <img src="right.jpg" class="side-img right">
 
 </div>
+<audio id="clickSound" src="click.mp3"></audio>
+<audio id="correctSound" src="correct.mp3"></audio>
+<audio id="wrongSound" src="wrong.mp3"></audio>
 
 <script src="script.js"></script>
 
 </body>
 </html>
-
-

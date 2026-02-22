@@ -27,17 +27,52 @@
     <h2 id="question">Question here</h2>
     <div id="answers"></div>
     <p>Score: <span id="score">0</span></p>
+
     <div class="progress">
-  <div id="loveBar"></div>
-</div>
+      <div id="loveBar"></div>
+    </div>
   </div>
 
   <img src="right.jpg" class="side-img right">
 
 </div>
+
+<!-- SOUND FILES -->
 <audio id="clickSound" src="click.mp3"></audio>
 <audio id="correctSound" src="correct.mp3"></audio>
 <audio id="wrongSound" src="wrong.mp3"></audio>
+
+
+<!-- ❤️ LOVE MESSAGE SCREEN (FIRST SHOW) -->
+<div id="loveMessageScreen" class="final-screen" style="display:none">
+  <div class="final-content">
+    <h1>❤️ Thangame ❤️</h1>
+    <p>En Life La Vanthu Enna Heal Pannathukku Romba Thanks Thangame🤗</p>
+    <p>Unakku oru small surprise iruku  wait pannu 😍</p>
+    <button onclick="openFinalVideo()">See Surprise ❤️</button>
+  </div>
+</div>
+
+
+<!-- 🎬 FINAL VIDEO SCREEN -->
+<div id="finalScreen" class="final-screen" style="display:none">
+  <div class="final-content">
+
+    <h1>❤️ I Love You Thangame ❤️</h1>
+    <p>நீ தான் என் வாழ்க்கை 💕</p>
+   <!-- ⏳ SIDE COUNTDOWN -->
+<div id="videoTimerBox">
+  <p>Wait for your gift ❤️</p>
+  <span id="videoTimer">30</span>s
+</div>
+    <video id="loveVideo" controls>
+      <source src="love.mp4" type="video/mp4">
+    </video>
+
+    <button onclick="location.reload()">Replay ❤️</button>
+
+  </div>
+</div>
 
 <script src="script.js"></script>
 

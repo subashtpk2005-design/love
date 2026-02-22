@@ -66,9 +66,9 @@ button:hover{
     padding:20px 0;
   }
   .side-img{
-  width:250px;       /* same width */
-  height:auto;       /* ⭐ full image show */
-  max-height:350px;  /* limit only (optional) */
+  width:30%;       /* same width */
+  height:40%;       /* ⭐ full image show */
+    /* limit only (optional) */
   object-fit:contain; /* no crop */
   border-radius:20px;
 }
@@ -78,6 +78,7 @@ button:hover{
     width:90%;
   }
 }
+
 
 
 

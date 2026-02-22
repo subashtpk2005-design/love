@@ -72,6 +72,16 @@ answers:[
 { text:"Maranthutu", msg:"😤 Yosichu paru" }
 ]
 },
+
+{
+question:"Onakku pudichathu yaru😁 ?",
+answers:[
+{ text:"Unga Appa", msg:"Ithu Therinjathu Than" },
+{ text:"Meee", msg:"Unga Chellamum Partnerum Pakathula Irukangala😅", correct:true },
+{ text:"Unga Chellam", msg:"Nenachennn😁" },
+{ text:"Unga Partner", msg:"Guess pannathu than" }
+]
+},
 {
 question:"En Thangathukku Birthdaykku Enna Gift venum 🎁?",
 multi:true,
@@ -80,15 +90,6 @@ answers:[
 { text:"Teddy", msg:"🧸 OK Notted Select 1 more", correct:true },
 { text:"Onnum ventam", msg:"😒 Olunga select pannu!" },
 { text:"Jimikki", msg:"🎁 OK Notted Select 1 more",correct:true }
-]
-},
-{
-question:"Onakku pudichathu yaru😁 ?",
-answers:[
-{ text:"Unga Appa", msg:"Ithu Therinjathu Than" },
-{ text:"Meee", msg:"Unga Chellamum Pakathula Irukangala😅", correct:true },
-{ text:"Unga Chellam", msg:"Nenachennn😁" },
-{ text:"Unga Partner", msg:"Guess pannathu than" }
 ]
 }
 ];
@@ -258,12 +259,63 @@ else showResult();
 
 
 // RESULT
+// RESULT
 function showResult(){
-document.querySelector(".quiz-box").innerHTML=
-`<h2>❤️ I Love You ❤️</h2>
-<p>நீ தான் என் வாழ்க்கை 💕</p>
-<h3>Final Score: ${score}</h3>`;
+
+updateLoveBar();
+
+// hide quiz
+document.querySelector(".quiz-box").style.display="none";
+
+// show love message screen
+document.getElementById("loveMessageScreen").style.display="flex";
+
 }
 
 updateLoveBar();
+// ❤️ OPEN VIDEO AFTER MESSAGE
+function openFinalVideo(){
+
+// hide message screen
+document.getElementById("loveMessageScreen").style.display="none";
+
+// show video screen
+document.getElementById("finalScreen").style.display="flex";
+
+let video=document.getElementById("loveVideo");
+video.play().catch(()=>{});
+
+// fullscreen
+if(video.requestFullscreen){
+  video.requestFullscreen();
+}
+
+// ⭐ START 30s COUNTDOWN
+startVideoTimer(30);
+
+}
 loadQuestion();
+
+function startVideoTimer(seconds){
+
+let timer=document.getElementById("videoTimer");
+let box=document.getElementById("videoTimerBox");
+
+box.style.display="block";
+
+let time=seconds;
+
+let interval=setInterval(()=>{
+
+time--;
+timer.innerText=time;
+
+if(time<=0){
+clearInterval(interval);
+box.style.display="none"; // hide after 30s
+}
+
+},1000);
+
+}
+

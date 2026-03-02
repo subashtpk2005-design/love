@@ -276,25 +276,30 @@ updateLoveBar();
 // ❤️ OPEN VIDEO AFTER MESSAGE
 function openFinalVideo(){
 
-// hide message screen
-document.getElementById("loveMessageScreen").style.display="none";
+  document.getElementById("loveMessageScreen").style.display="none";
+  document.getElementById("finalScreen").style.display="flex";
 
-// show video screen
-document.getElementById("finalScreen").style.display="flex";
+  let video=document.getElementById("loveVideo");
 
-let video=document.getElementById("loveVideo");
-video.play().catch(()=>{});
-
-// fullscreen
-if(video.requestFullscreen){
-  video.requestFullscreen();
-}
-
-// ⭐ START 30s COUNTDOWN
-startVideoTimer(30);
-
+  video.play().catch(()=>{});
 }
 loadQuestion();
+function startVideoCountdown(){
+
+let time=30;
+let timer=document.getElementById("videoTimer");
+
+let interval=setInterval(()=>{
+time--;
+timer.innerText=time;
+
+if(time<=0){
+clearInterval(interval);
+document.querySelector(".video-countdown").style.display="none";
+}
+},1000);
+
+}
 
 function startVideoTimer(seconds){
 
@@ -318,4 +323,80 @@ box.style.display="none"; // hide after 30s
 },1000);
 
 }
+function startGiftCountdown(){
 
+  let time = 30;
+  let timer = document.getElementById("giftTime");
+  let box = document.getElementById("giftCountdown");
+
+  box.style.display = "block";
+
+  let interval = setInterval(()=>{
+    time--;
+    timer.innerText = time;
+
+    if(time <= 0){
+      clearInterval(interval);
+      box.innerHTML = "🎁 Gift unlocked ❤️";
+    }
+  },1000);
+}
+document.getElementById("loveVideo").addEventListener("play",()=>{
+  startGiftCountdown();
+});
+const video = document.getElementById("loveVideo");
+
+video.addEventListener("play", startGiftCountdown);
+
+function startGiftCountdown(){
+
+  let time = 30;
+  let box = document.getElementById("giftCountdown");
+  let timer = document.getElementById("giftTime");
+
+  box.style.display = "block";
+
+  let interval = setInterval(()=>{
+    time--;
+    timer.innerText = time;
+
+    if(time <= 0){
+      clearInterval(interval);
+      box.innerHTML = "🎁 Gift unlocked ❤️";
+    }
+  },1000);
+}
+
+// ❤️ OPEN VIDEO
+function openFinalVideo(){
+
+document.getElementById("loveMessageScreen").style.display="none";
+document.getElementById("finalScreen").style.display="flex";
+
+let video=document.getElementById("loveVideo");
+video.play().catch(()=>{});
+
+startGiftCountdown();
+}
+
+
+// ❤️ 30 SEC COUNTDOWN
+function startGiftCountdown(){
+
+let time=30;
+let box=document.getElementById("giftCountdown");
+let timer=document.getElementById("giftTime");
+
+box.style.display="block";
+
+let interval=setInterval(()=>{
+time--;
+timer.innerText=time;
+
+if(time<=0){
+clearInterval(interval);
+box.innerHTML="🎁 Gift unlocked ❤️";
+}
+},1000);
+
+}

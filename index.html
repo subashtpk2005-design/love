@@ -12,7 +12,7 @@
 
 <!-- MESSAGE BOX -->
 <div id="msgBox" class="msg-box">
-  <div class="msg-content">
+  <div class="msg-content romantic-border">
     <p id="msgText"></p>
     <button onclick="closeMsg()">OK</button>
   </div>
@@ -23,6 +23,7 @@
   <img src="left.jpg" class="side-img left">
   
   <div class="quiz-box">
+  
     <p id="multiCount" style="display:none; margin-top:10px; font-weight:bold;"></p>
     <h2 id="question">Question here</h2>
     <div id="answers"></div>
@@ -58,20 +59,31 @@
 <div id="finalScreen" class="final-screen" style="display:none">
   <div class="final-content">
 
-    <h1>❤️ I Love You Thangame ❤️</h1>
-    <p>நீ தான் என் வாழ்க்கை 💕</p>
-   <!-- ⏳ SIDE COUNTDOWN -->
-<div id="videoTimerBox">
-  <p>Wait for your gift ❤️</p>
-  <span id="videoTimer">30</span>s
+    <h1>❤️ Thangame ❤️</h1>
+    <p>I Love You💕</p>
+<!-- ❤️ VIDEO WRAPPER -->
+<div class="video-wrapper">
+
+  <video id="loveVideo" controls>
+    <source src="love.mp4" type="video/mp4">
+  </video>
+
+  <!-- ❤️ COUNTDOWN OVERLAY -->
+  <div id="giftCountdown" class="gift-countdown">
+    <p>Wait for your gift ❤️</p>
+    <span id="giftTime">30</span>s
+  </div>
+
 </div>
-    <video id="loveVideo" controls>
-      <source src="love.mp4" type="video/mp4">
-    </video>
 
     <button onclick="location.reload()">Replay ❤️</button>
 
   </div>
+</div>
+<!-- ❤️ COUNTDOWN GLOBAL OVERLAY -->
+<div id="giftCountdown" class="gift-countdown">
+  <p>Wait for your gift ❤️</p>
+  <span id="giftTime">30</span>s
 </div>
 
 <script src="script.js"></script>
